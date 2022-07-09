@@ -2,8 +2,7 @@ import React from 'react'
 
 export default function ServerOut() {
   return (
-     <div class="OUTSERVER-SIUU flex items-center justify-center min-h-screen bg-indigo-500  bg-fixed bg-cover bg-bottom error-bg">
-	
+     <div class="flex items-center justify-center min-h-screen bg-indigo-500  bg-fixed bg-cover bg-bottom error-bg">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8 offset-sm-2 text-gray-50 text-center -mt-52">
