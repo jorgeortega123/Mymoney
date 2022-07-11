@@ -20,7 +20,7 @@ export default function DetailsExpendsWeek(data) {
       const sumDebst = toWork.debts.reduce((accumulator, object) => {
         return accumulator + object.mount;
       }, 0);
-      const paid = toWork.debts.reduce((accumulator, object) => {
+      cons paid = toWork.debts.reduce((accumulator, object) => {
         return accumulator + object.paid;
       }, 0);
 
