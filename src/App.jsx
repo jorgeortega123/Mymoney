@@ -41,12 +41,15 @@ function App() {
   //////
 
   return (
+
     <MessageContextComponent>    <GlobalContextComponent>
-      <div className="h-screen w-full absolute top-0 bg-white dark:bg-black">
-        <div className="bg-slate-100 h-[40px] text-3xl font-bold underline flex justify-center">
-          <p className="">MyMoney</p>
+      <div className="blockAllSelect h-screen w-full absolute top-0 bg-white dark:bg-black">
+        <div className=" h-[40px] text-3xl font-bold underline flex justify-center border rounded-xl bg-slate-200">
+          <p className="blockAllSelect ">MyMoney</p>
         </div>
-        <div className="p-2 w-full h-auto flex flex-col space-y-2 justify-center space-x-2 sm:flex-col sm:space-y-2 lg:flex-row ">
+     {!onErrorServerOut ? (
+      <>
+        <div className="p-2 w-full h-auto flex flex-col  space-y-2 justify-center space-x-2 sm:flex-col sm:space-y-2 lg:flex-row ">
           {endServerRes ? (
             <PieDiagramHome dataPie={serverResponsive} />
           ) : (
@@ -68,7 +71,8 @@ function App() {
           ) : (
             <p></p>
           )}
-        </div>
+        </div></>
+      ) : <ServerOut />} 
       </div>
     </GlobalContextComponent>
     </MessageContextComponent>

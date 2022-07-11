@@ -70,3 +70,48 @@ export const serverRes = [
       "savings": [{ "title": "ahorros", "value":0, "cost": 4, "max": 8 }]
     }
   ]
+export const lang = {
+  "es": {
+    "server": { 
+      "out": ["El servidor no está disponible", "Estamos trabajando para arreglarlo"]
+    }
+  },
+  "en": { 
+    "server": { 
+     "out": ["The server is not available", "We are working to fix it"]
+    },
+    "components": { 
+     "moveCash": ["Add cost or expense"],
+     "incomingCash": [{
+      "title": ["Add incoming cash"],
+      "destiny": ["Destiny to"]
+    }],
+    "detailsWeek": [{
+      "title": ["Details"], 
+      "greeting" : ["Hi"], 
+      "infFirst": ["there's your account balance"],
+      "AccountStats": ["Account management: "],
+      "netWorth": ["Net Worth"],
+      "Savings": ["Savings"],
+      "Debts": ["Debts"], 
+      "AbilityToBorrow": ["Ability To Borrow"]
+   
+    }],
+     "debts": [{
+      "title": ["About debts"],
+      "name" : ["Name"],
+      "relationship": ["Relationship"],
+      "mountToPay": ["Mount to pay"],
+      "paid": ["Paid"]
+     }
+      ]
+    },
+    "buttons": { 
+      "add": ["Add"],
+      "weekly": ["Pay weekly"],
+      "increase": ["Increase"],
+      "decrease": ["Decrease"]
+    }
+
+  }
+}

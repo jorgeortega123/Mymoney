@@ -19,11 +19,15 @@ export const PieDiagramHome = (dataPie) => {
     const sum = principalRes.cost[0].fixed.reduce((accumulator, object) => {
       return accumulator + object.value;
     }, 0);
+    const sum2 = principalRes.cost[0].variables.reduce((accumulator, object) => {
+      return accumulator + object.value;
+    }, 0);
     const model = () => {
+      var patrimonio =  principalRes.restOfLastWeek[1].value
       var dataToChange = principalRes.cost[0].fixed;
       //console.log(dataToChange)
       const allArray=[]
-      allArray.push({ "title": "Disponible", "color":"#249d3d", value: perWeek - sum , cost: 3, max: 4})
+      allArray.push({ "title": "Disponible", "color":"#249d3d", value: patrimonio + perWeek - sum -sum2 , cost: 3, max: 4})
       dataToChange.forEach(array => {
         allArray.push(array)
       });

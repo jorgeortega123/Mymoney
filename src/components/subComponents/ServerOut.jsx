@@ -1,27 +1,47 @@
-import React from 'react'
-
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { lang } from "../../dataSimulateServer";
 export default function ServerOut() {
+  const [langstate, setlangstate] = useState({});
+  const [continuePage, setcontinuePage] = useState(false)
+  useEffect(() => {
+    console.log(lang);
+    var setlang = localStorage.getItem("lang");
+    if (!setlang) {
+      setlangstate(lang.en);
+	    setcontinuePage(true)
+    } else {
+      setlangstate(lang[setlang]);
+      setcontinuePage(true)
+    }
+  }, []);
+
   return (
-     <div class="flex items-center justify-center min-h-screen bg-indigo-500  bg-fixed bg-cover bg-bottom error-bg">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-8 offset-sm-2 text-gray-50 text-center -mt-52">
-				<div class="relative ">
-				<h1 class="relative text-9xl tracking-tighter-less text-shadow font-sans font-bold">
-					<span>4</span><span>0</span><span>4</span></h1>
-					<span class="absolute  top-0   -ml-12  text-gray-300 font-semibold">Oops!</span>
-					</div>
-				<h5 class="text-gray-300 font-semibold -mr-10 -mt-3">Page not found</h5>
-				<p class="text-gray-100 mt-2 mb-6">we are sorry, but the page you requested was not found</p>
-				<a
-					class="bg-green-400  px-5 py-3 text-sm shadow-sm font-medium tracking-wider text-gray-50 rounded-full hover:shadow-lg">
-					Got to Home
-				</a>
-			</div>
-		</div>
-	</div>
-
-
-</div>
-  )
+    <AnimatePresence> 
+    <div className=" flex items-center justify-center pt-20 "> 
+      <section className="border rounded-xl bg-slate-300 flex items-center h-full p-16 dark:bg-gray-900 dark:text-gray-100">
+        <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+		{continuePage ? ( <motion.div
+          initial={{ y: "-100vh", opacity:  0}}
+          animate={{ y: 0, opacity: 5 }}
+          exit={{ y: "-100vw", opacity: 0 }}
+          transition={{
+            type: "spring",
+            duration: 2,
+          }}> <div className="max-w-md text-center">
+            <h2 className="mb-8 font-extrabold text-9xl text-gray-800 dark:text-gray-600">
+              <span className="sr-only">Error</span>500
+            </h2>
+            <p className="text-2xl font-semibold md:text-3xl text-gray-600">
+              {langstate.server.out[0]}
+            </p>
+            <p className="mt-4 mb-8 dark:text-gray-400 text-gray-500">
+		  {langstate.server.out[1]}
+            </p>
+          </div></motion.div>) : <p></p>}
+        </div>
+      </section>
+    </div>
+    </AnimatePresence>
+  );
 }
